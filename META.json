@@ -1,44 +1,54 @@
 {
- "name": "pgsmtp",
- "abstract": "Function to send mail by smtp using plpython ",
- "version": "0.1.0",
- "maintainer": "Anthony <asotolongo@gmail.com>",
- "license": "postgresql",
- "provides": {
-    "pgsmtp": {
-       "abstract": "Function to send mail by smtp using plpython",
-       "file": "pgsmtp--0.1.sql",
+   "name": "pgsmtp",
+   "abstract": "Function to send mail and attach by smtp using plpython",
+   "description": "Function to send mail and attach by smtp using plpython",
+   "version": "0.1.1",
+   "maintainer": [
+      "<asotolongo@gmail.com>"
+   ],
+   "license": {
+      "PostgreSQL": "http://www.postgresql.org/about/licence"
+   },
+   "prereqs": {
+      "runtime": {
+         "requires": {
+            "plpython": 0,
+            "PostgreSQL": "9.3.0"
+         },
+         "recommends": {
+            "PostgreSQL": "9.3.0"
+         }
+      }
+   },
+   "provides": {
+     "pgsmtp": {
+       "file": "pgsmtp--0.1.1.sql",
        "docfile": "README",
-       "version": "0.1.0"
-    }
- },
- "prereqs": {
-    "runtime": {
-       "requires": {
-          "PostgreSQL": "9.3.0"
-       }
-    }
- },
- "resources": {
-    "bugtracker": {
-            "web": "anthonysotolongo.wordpress.com",
-            "mailto": "asotolongo@gmail.com"
-        },
-    "repository": {
-      "url":  "https://github.com/asotolongo/pgsmtp.git",
-      "web":  "https://github.com/asotolongo ",
-      "type": "git"
-    }
- },
- "release_status": "stable",
- "generated_by": "Anthony R. Sotolongo leon",
- "meta-spec": {
-    "version": "0.1.0",
-    "url": ""
- },
- "tags": [
-    "mail",
-    "plpython"
-   
- ]
+       "version": "0.1.1",
+       "abstract": "Function to send mail and attach by smtp using plpython"
+     }
+     }
+   },
+   "resources": {
+      "homepage": "http://anthonysotolongo.wordpress.com",
+      "bugtracker": {
+         "mailto": "asotolongo@gmail.com"
+      },
+      "repository": {
+         "url":  "https://github.com/asotolongo/pgsmtp.git",
+         "web":  "https://github.com/asotolongo ",
+        "type": "git"
+      }
+   },
+   "generated_by": "Anthony R. Sotolongo Leon",
+   "meta-spec": {
+      "version": "1.0.0",
+      "url": "http://pgxn.org/meta/spec.txt"
+   },
+   "tags": [
+      "mail",
+      "plpython"
+   ]
 }
+
+
