@@ -28,7 +28,7 @@
        "abstract": "Function to send mail and attach by smtp using plpython"
      }
      }
-   },
+   ,
    "resources": {
       "homepage": "http://anthonysotolongo.wordpress.com",
       "bugtracker": {
