@@ -1,5 +1,5 @@
 Function to send mail by smtp in 9.3+
-#No tested in 9.2-
+Tested in 16.0
 ======================================
 
 This PostgreSQL extension implements a functions to send mail and attach by smtp using plpython
