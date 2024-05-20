@@ -1,5 +1,5 @@
 Function to send mail by smtp in 9.3+
-Tested in 16.0
+Edited & Tested for Postgresql 16.0
 ======================================
 
 This PostgreSQL extension implements a functions to send mail and attach by smtp using plpython
@@ -13,7 +13,7 @@ Building and install
 --------
 Install postgresql-plpython:sudo apt-get install postgresql-plpython-9.x (where x >=3)
 Run make install 
-In postgresql execute: CREATE EXTENSION plpythonu;
+In postgresql execute: CREATE EXTENSION plpython3u;
               create extension pgsmtp;
 
 

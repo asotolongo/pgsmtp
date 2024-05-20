@@ -14,7 +14,7 @@ CREATE OR REPLACE FUNCTION pgsmtp.pg_smtp_mail(
 $BODY$
  
 import smtplib
-from email.MIMEText import MIMEText
+from email.mime.text import MIMEText
 
 
 # find data about sender
@@ -34,9 +34,7 @@ if result:
 
     try:
         # Authenticate
-        serversmtp = smtplib.SMTP(result[0]['smtp_server'],result[0]['smtp_port'])
-        serversmtp.ehlo_or_helo_if_needed()
-        serversmtp.starttls()
+        serversmtp = smtplib.SMTP_SSL(result[0]['smtp_server'],result[0]['smtp_port'])
         serversmtp.ehlo_or_helo_if_needed()
         serversmtp.login(sender,result[0]['smtp_pass'])
 
@@ -47,7 +45,7 @@ if result:
         serversmtp.close()
         return 'Send'
 
-    except Exception, e:
+    except Exception as e:
         return 'Error , check parameters ', str(e)
 else:
     return 'Error , no data for sender user, check in table pgsmtp.user_smtp_data'
@@ -55,7 +53,7 @@ else:
 
  
 $BODY$
-  LANGUAGE plpythonu VOLATILE;
+  LANGUAGE plpython3u VOLATILE;
 
 CREATE OR REPLACE FUNCTION pgsmtp.pg_smtp_mail_attach(
     sender character varying,
@@ -68,7 +66,7 @@ CREATE OR REPLACE FUNCTION pgsmtp.pg_smtp_mail_attach(
 $BODY$
  
 import smtplib
-from email.MIMEText import MIMEText
+from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 
@@ -90,9 +88,7 @@ if result:
 
     try:
         # Authenticate
-        serversmtp = smtplib.SMTP(result[0]['smtp_server'],result[0]['smtp_port'])
-        serversmtp.ehlo_or_helo_if_needed()
-        serversmtp.starttls()
+        serversmtp = smtplib.SMTP_SSL(result[0]['smtp_server'],result[0]['smtp_port'])
         serversmtp.ehlo_or_helo_if_needed()
         serversmtp.login(sender,result[0]['smtp_pass'])
 
@@ -102,7 +98,7 @@ if result:
         #attaching
         if attach[0]!=None:
             for att in attach:
-                print str(att)
+                print(str(att))
                 bin = MIMEApplication(open(str(att),"rb").read())
                 bin.add_header('Content-Disposition', 'attachment', filename=att)
                 mens.attach(bin)
@@ -113,7 +109,7 @@ if result:
         serversmtp.close()
         return 'Send'
 
-    except Exception, e:
+    except Exception as e:
         return 'Error , check parameters ', str(e)
 else:
     return 'Error , no data for sender user, check in table pgsmtp.user_smtp_data'
@@ -121,5 +117,5 @@ else:
 
  
 $BODY$
-  LANGUAGE plpythonu VOLATILE;
+  LANGUAGE plpython3u VOLATILE;
 
