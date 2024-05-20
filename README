@@ -13,7 +13,7 @@ Building and install
 --------
 Install postgresql-plpython:sudo apt-get install postgresql-plpython-9.x (where x >=3)
 Run make install 
-In postgresql execute: CREATE EXTENSION plpythonu;
+In postgresql execute: CREATE EXTENSION plpython3u;
               create extension pgsmtp;
 
 
@@ -34,7 +34,7 @@ select pgsmtp.pg_smtp_mail('asoto@gmail.com','asoto@gmail.com',array['mail@mail.
 select pgsmtp.pg_smtp_mail('asoto@gmail.com','asoto@gmail.com',array[''],'Test mail','Mail from postgres using pgsmtp :D');
 
 
-#sending mail pgsmtp.pg_smtp_mail(sender, receiver, cc,topic,text) with attach
+#sending mail pgsmtp.pg_smtp_mail_attach(sender, receiver, cc,topic,text,attach) with attach
 
 select pgsmtp.pg_smtp_mail_attach('asoto@gmail.com','asoto@gmail.com',array[''],'Test mail','Mail from postgres using pgsmtp :D',array['/tmp/adjunto.txt']);
 
